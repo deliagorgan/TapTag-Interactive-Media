@@ -29,8 +29,8 @@ The project follows a microservices-inspired architecture to ensure separation o
 
 ### 1. Clone & Install
 ```bash
-git clone
-cd taptag
+git clone https://github.com/deliagorgan/TapTag-Interactive-Media
+cd TapTag-Interactive-Media
 npm install
 npm install --prefix frontend
 npm install --prefix backend
