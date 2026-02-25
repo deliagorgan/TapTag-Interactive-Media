@@ -1,0 +1,832 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.floating-card {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: float 3s ease-in-out infinite;
+  background-color: rgba(255, 255, 255, 0.9); /* alb 90% opac */
+}
+
+@keyframes movingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(
+    120deg,
+    #1f3a93, /* albastru închis */
+    #3fc1c9, /* turcoaz vibrant */
+    #f9dc5c  /* galben pal */
+  );
+  background-size: 300% 300%;
+  animation: movingGradient 12s ease infinite;
+}
+
+.btn-login {
+  background-color: #57BE9F !important; /* turcoaz */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+.form-control:focus {
+  box-shadow: 0 0 0 2px rgba(63, 193, 201, 0.4); /* turcoaz semi-transparent */
+  border-color: #3fc1c9;
+}
+
+
+/* ============================================= */
+/*  CSS PENTRU REGISTER (toate clasele prefixate) */
+/* ============================================= */
+
+/* ============================================= */
+/* 1. FUNDAL ANIMAT PENTRU REGISTER */
+/* ============================================= */
+@keyframes register-movingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.register-animated-bg {
+  position: relative; /* pentru eventuale pseudo-elemente */
+  min-height: 100vh;
+  background: linear-gradient(
+    120deg,
+    #1f3a93,  /* albastru închis */
+    #3fc1c9,  /* turcoaz vibrant */
+    #f9dc5c   /* galben pal */
+  );
+  background-size: 300% 300%;
+  animation: register-movingGradient 12s ease infinite;
+}
+
+/* ============================================= */
+/* 2. LOGO „TapTag” ANIMAT (pentru REGISTER) */
+/* ============================================= */
+@keyframes register-pulseLogo {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.register-animated-logo {
+  animation: register-pulseLogo 3s ease-in-out infinite;
+  display: inline-block;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  font-weight: 'bold';
+  color: #FFFFFF;
+  user-select: none;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+}
+
+/* ============================================= */
+/* 3. CARD „PLUTITOR” PENTRU REGISTER */
+/* ============================================= */
+@keyframes register-float {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.10),
+      0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: translateY(-8px);
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.15),
+      0 16px 32px rgba(0, 0, 0, 0.20);
+  }
+}
+.register-floating-card {
+  border-radius: 65px !important;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  animation: register-float 3s ease-in-out infinite;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+  max-width: 90%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ============================================= */
+/* 4. BUTON „REGISTER” CU MICRO-INTERACȚIUNI */
+/* ============================================= */
+.register-btn-register {
+  background-color: #3fc1c9 !important; /* turcoaz */
+  color: #ffffff !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 600;
+}
+.register-btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================= */
+/* 5. FOCUS PENTRU FORM-CONTROL (REGISTER) */
+/* ============================================= */
+.register-form-control:focus {
+  box-shadow: 0 0 0 2px rgba(63, 193, 201, 0.4);
+  border-color: #3fc1c9;
+}
+
+/* Dacă folosești direct clasa `form-control` din Bootstrap, adaugă și: */
+/*
+.form-control:focus {
+  box-shadow: 0 0 0 2px rgba(63, 193, 201, 0.4);
+  border-color: #3fc1c9;
+}
+*/
+
+/* ============================================= */
+/* 6. ETICHETE MODERNIZATE PENTRU REGISTER */
+/* ============================================= */
+.register-form-label {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #2E3B4E;
+}
+
+/* Pentru etichete care exprimă iconițe + text, dacă vrei un stil unic: */
+/*
+.register-form-label.d-flex {
+  color: #2E3B4E;
+}
+*/
+
+/* ============================================= */
+/* 7. ILUSTRAȚIE SVG ANIMATĂ (REGISTER) */
+/* ============================================= */
+@keyframes register-floatIllustration {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.register-illustration-svg {
+  animation: register-floatIllustration 4s ease-in-out infinite;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================= */
+/* 8. LINK-URI PENTRU REGISTER (A-ZI CONT?) */
+/* ============================================= */
+.register-link-register {
+  color: #3fc1c9;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.register-link-register:hover {
+  color: #1f3a93;
+}
+
+/* ============================================= */
+/* 9. OVERLAY PENTRU MESAJUL DE SUCCES REGISTER */
+/* ============================================= */
+.register-success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.50);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-success-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.20);
+}
+
+.register-success-card h4 {
+  color: #3fc1c9;
+  margin-bottom: 1rem;
+}
+
+.register-success-card p {
+  font-size: 1rem;
+  color: #333333;
+}
+
+/* ============================================= */
+/* 10. ALTE UTILITARE (opțional) */
+/* ============================================= */
+/* Dacă mai folosești alte clase generice, prefixează-le cu `register-`:
+   .register-another-class { ... } 
+*/
+
+
+
+/* pentru pagina de verificare mail  */
+.email-conf-floating-card {
+  position: static;       /* (sau pur și simplu şterge linia) */
+  transform: none;        /* (şterge linia) */
+  top: auto;              /* (şterge linia) */
+  left: auto;   
+
+  width: 90%;
+  max-width: 500px;
+
+  border-radius: 2.5rem !important;;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  animation: register-float 3s ease-in-out infinite;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+
+.email-conf-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100vh !important;
+}
+
+.feed-animated-bg{
+  position: fixed;      /* ocupă tot ecranul */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(76,175,189,0.3) 0%,
+    rgba(158,233,213,0.3) 100%
+  );
+  background-size: 300% 300%;
+  /* animation: movingGradient 12s ease infinite; */
+  z-index: -1;             /* să fie sub container */
+}
+
+.glass-card {
+  background: #ffffff8b;           /* total opac, alb curat */
+  border-radius: 55px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+.app-navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;                     /* peste conținut */
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-nav .nav-link {
+  color: rgba(0, 0, 0, 0.8);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.glass-nav .nav-link:hover {
+  color: #3fc1c9;               /* culoarea accent */
+  transform: scale(1.2);
+}
+
+
+/* pentru feed */
+/* Wrapper-ul care „îmbracă” numai card-ul */
+.feed-card-wrapper {
+  display: inline-block;    /* dimensiune strict pe card */
+  width: 100%;              /* sau max-width: 800px, după nevoie */
+  position: relative;       /* contextul pentru săgeată */
+}
+
+/* Buton-săgeată */
+.feed-next-arrow {
+  position: absolute;
+  top: 50%;                 /* jumătatea înălțimii wrapper-ului (cardului) */
+  right: -5%;             /* sau cât vrei să-l muți spre exterior */
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feed-back-arrow {
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efect hover */
+.feed-next-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.feed-back-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+
+.card-comentarii {
+  /* fă-l puţin mai lat, dar nu depăşi tot containerul */
+  width: 100%;
+  max-width: 600px;      /* ajustează după cât de mult vrei să-l lărgeşti */
+  margin: 0 auto;        /* centrează-l dacă e mai mic decât col-ul */
+  
+  /* colţuri fine */
+  border-radius: 40px !important ;   
+  
+  /* păstrează restul stilurilor */
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* comentarii */ 
+
+
+/* Fiecare comentariu */
+.comment-item {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Avatar și username clicabile */
+.click-avatar, .click-username {
+  cursor: pointer;
+}
+.click-avatar:hover, .click-username:hover {
+  opacity: 0.8;
+}
+
+/* Text comentariu */
+.comment-text {
+  line-height: 1.3;
+}
+
+/* Input + icon send */
+/* Wrapper-ul input-ului */
+.comment-input-group {
+  max-width: 100%;
+}
+
+/* Input cu colțurile din stânga rotunjite, iar cele din dreapta drepte ca să se potrivească lângă icon */
+.comment-input {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Addon-ul de trimis: colțurile drepte rotunjite */
+.comment-send-btn {
+  background: #3fc1c9 !important;
+  color: white !important;
+  border: none;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+}
+
+.comment-send-btn:hover {
+  background: #28a4a0 !important;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+
+
+/* Face lista de comentarii fixă și scrollabilă */
+.comment-list {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 1rem;
+  text-align: left !important;
+}
+
+/* Fiecare element */
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Conţinutul comentariului ocupă tot spaţiul rămas */
+.comment-content {
+  flex: 1;
+}
+
+/* Header cu nume + dată pe coloană */
+.comment-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Stil dată */
+.comment-date {
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+/* Text comentariu */
+.comment-text {
+  margin: 0.25rem 0;
+  text-align: left !important;
+}
+
+/* Butonul delete e la marginea din dreapta */
+.btn-delete-comment {
+  margin-left: 0.5rem;
+}
+
+
+/* Default: gri închis */
+.btn-delete-comment {
+  color: #555555 !important;
+  transition: color 0.2s ease !important;
+}
+
+/* Hover: turcoaz */
+.btn-delete-comment:hover {
+  color: #3fc1c9 !important;
+}
+
+#toggleRegions.form-check-input:checked {
+  background-color: #40e0d0; /* turcoaz */
+  border-color: #40e0d0;
+}
+
+/* ADD POST */
+
+/* Cardul va avea dimensiune fixă */
+.add-post-card {
+  width: 90%;
+  min-width: 80%;
+  max-width: 80%;
+  height: 85vh;
+  min-height: 80%;  /* Ca să nu fie prea mic */
+  max-height:80%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 80px !important;
+  overflow: hidden;  /* Taie orice iese din card */
+}
+
+.add-post-card .card-body {
+  flex: 1;
+  overflow-y: auto; /* Scroll dacă conținutul e prea mare */
+  padding: 2rem; /* Un pic mai mult spațiu */
+}
+
+.add-post-animated-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(76,175,189,0.3) 0%, rgba(93, 235, 197, 0.3) 100%);
+  background-size: 300% 300%;
+  overflow: hidden;
+}
+
+.add-post-card-header {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  border: none !important;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+
+.add-post-card-header h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+.add-post-card-body {
+  display: flex;
+flex-direction: column;
+height: 100%;
+}
+
+.add-post-plus{
+   flex: 1;
+  width: 100%;
+  height: 100%;
+  border: 3px dashed #ccc;
+  border-radius: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 8rem;
+  color: #bbb;
+  transition: all 0.3s ease;
+}
+
+.add-post-plus:hover {
+  border-color: #40e0d0; /* turcoaz */
+  color: #40e0d0;        /* turcoaz */
+}
+
+.add-post-custom-button {
+  border: 2px solid #ccc !important;
+  background-color: #ccc !important;
+  color: #555 !important;
+  transition: all 0.3s ease;
+}
+
+.add-post-custom-button:hover {
+  background-color: #40e0d0 !important;
+  border-color: #40e0d0 !important;
+}
+
+/* pentru butoanele de aspect ratio */
+.add-post-aspect-button {
+  border: 2px solid #ccc !important;
+  background-color: white !important;
+  color: #555 !important;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+
+.add-post-aspect-button:hover {
+  border-color: #40e0d0 !important;
+  color: #40e0d0 !important;
+}
+
+.add-post-trash-icon {
+  cursor: pointer;
+  color: #555 !important;
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.add-post-trash-icon:hover {
+  color: #40e0d0 !important; /* sau roșu mai aprins, cum vrei */
+}
+
+
+
+/* SEARCH TAB */
+
+
+
+
+.search-tab-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.search-tab-btn {
+  position: relative;
+  background: none !important;
+  border: none !important;
+  font-weight: 500;
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: #555 !important;
+  cursor: pointer;
+  /* background-color: transparent; */
+}
+
+.search-tab-btn.active {
+  color: #2d9c91 !important;
+}
+.search-tab-btn:hover {
+  color: #40e0d0;
+  cursor: pointer;
+}
+
+.search-tab-underline {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background-color: #2d9c91 !important;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* EDIT PROFILE */
+
+.btn-turquoise {
+  background-color: #3bc9c9 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-red {
+  background-color: #c33f3f !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-turquoise:hover {
+  background-color: #2fa3a3 !important;
+}
+
+.btn-red:hover {
+  background-color: #a71818 !important;
+}
+.btn-premium {
+  background-color: #ffc107 !important;
+  color: black !important;
+  border: none !important;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-premium:hover {
+  background-color: #e6a800 !important;
+  color: white !important;
+}
+
+
+.report-button {
+  background-color: transparent !important;
+  border: transparent !important;
+  color: #ff5555 !important;
+  /* border-radius: 20px; */
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.report-button:hover {
+  /* background-color: #ffecec; */
+  color: #d60000 !important;
+  /* border-color: #ffaaaa; */
+}
+
+/* PENTRU FILTRARE LA USERI ADMINI 
+*/
+
+/* in your global styles or App.css */
+.offcanvas-backdrop {
+  background-color: rgba(0,0,0,0.2) !important;
+}
+
+.offcanvas {
+  max-width: 25rem;
+  border-left: 1px solid rgba(0,0,0,0.1);
+  box-shadow: -4px 0 8px rgba(0,0,0,0.1);
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 0.5rem;
+}
+
+.offcanvas-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.offcanvas-body {
+  padding: 1.5rem;
+}
+
+.filters-group {
+  margin-bottom: 1.5rem;
+}
+
+.filters-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.filters-group select,
+.filters-group .form-check {
+  margin-bottom: 0.75rem;
+}
+
+.apply-button {
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #ccc !important;
+  background-color: #ccc !important;
+  color: #555 !important;
+
+}
+
+.apply-button:hover {
+  border-color: #40e0d0 !important;
+  color: #40e0d0 !important;
+}
+
