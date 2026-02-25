@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
+    "annoy": "^4.0.0",
+    "express-session": "^1.18.1",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
+    "react-bootstrap": "^2.10.9",
+    "recharts": "^3.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "scripts": {
+    "start-frontend": "npm run start --prefix frontend",
+    "start-backend": "node backend/server/app.js",
+    "start-python": "python3 backend/server_python/app.py",
+    "start-all": "concurrently \"npm run start --prefix frontend\" \"node backend/server/app.js\" \"python3 backend/python_server/app.py\""
+  }
+}
+
